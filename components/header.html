@@ -1,18 +1,17 @@
 <!-- ============================================================
      HEADER.HTML - NEXA Advisory & Consulting
-     Place this file in /components/ folder
+     Place this file in /components/
+     
+     All paths are root-relative (start with /)
+     This ensures navigation works from ANY subfolder
      ============================================================ -->
 
-<!-- ===== TOP BAR (non-sticky) ===== -->
+<!-- ===== TOP BAR ===== -->
 <div class="top-bar">
     <div class="container">
         <div class="top-bar-left">
-            <a href="mailto:info@nexa.com.np">
-                <i class="fas fa-envelope"></i> info@nexaconsulting.com
-            </a>
-            <a href="tel:+9779768553322">
-                <i class="fas fa-phone"></i> +977 976-8553322
-            </a>
+            <a href="/contact.html"><i class="fas fa-envelope"></i> info@nexa.com.np</a>
+            <a href="/contact.html"><i class="fas fa-phone"></i> +977 9768553322</a>
         </div>
         <div class="top-bar-right">
             <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -26,32 +25,33 @@
 <!-- ===== SEARCH OVERLAY ===== -->
 <div class="search-overlay" id="searchOverlay">
     <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search services, industries, outsourcing..." onkeyup="liveSearch(this.value)" />
+        <input type="text" id="searchInput" placeholder="Search services, industries, resources..." onkeyup="liveSearch(this.value)" />
         <button class="close-search" onclick="closeSearch()"><i class="fas fa-times"></i></button>
         <div class="search-results" id="searchResults"></div>
     </div>
 </div>
 
-<!-- ===== NAVBAR (sticky) ===== -->
+<!-- ===== NAVBAR ===== -->
 <nav class="navbar" id="navbar">
     <div class="container">
-        <a href="index.html" class="logo">
+        <a href="/" class="logo">
             <img src="https://i.ibb.co/pjLC2xXD/Banner.png" alt="NEXA Advisory & Consulting" />
         </a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="https://nexa.com.np/index.html">Home</a></li>
-            <li><a href="https://nexa.com.np/about.html">About</a></li>
-            <li><a href="https://nexa.com.np/services.html">Services</a></li>
-            <li><a href="https://nexa.com.np/industries.html">Industries</a></li>
-            <li><a href="https://nexa.com.np/outsourcing.html">Outsourcing</a></li>
-            <li><a href="https://nexa.com.np/why-nexa.html">Why NEXA</a></li>
-            <li><a href="https://nexa.com.np/contact.html">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/industries.html">Industries</a></li>
+            <li><a href="/outsourcing.html">Outsourcing</a></li>
+            <li><a href="/why-nexa.html">Why NEXA</a></li>
+            <li><a href="/resources.html">Resources</a></li>
+            <li><a href="/contact.html">Contact</a></li>
             <li>
                 <button class="search-toggle" onclick="openSearch()" aria-label="Search">
                     <i class="fas fa-search"></i>
                 </button>
             </li>
-            <li><a href="contact.html" class="btn-primary">Book Consultation</a></li>
+            <li><a href="/contact.html" class="btn-primary">Book Consultation</a></li>
         </ul>
         <div class="hamburger" id="hamburger">
             <span></span>
@@ -63,10 +63,10 @@
 
 <style>
     /* ============================================================
-       HEADER STYLES - Premium Font & Icons
+       HEADER STYLES
        ============================================================ */
 
-    /* ===== TOP BAR ===== */
+    /* ----- TOP BAR ----- */
     .top-bar {
         background: var(--text-dark, #1A1A2E);
         color: rgba(255, 255, 255, 0.6);
@@ -101,7 +101,6 @@
         gap: 6px;
         font-size: 13px;
         text-decoration: none;
-        font-family: 'Inter', sans-serif;
     }
     .top-bar-left a:hover {
         color: var(--gold, #D4AF37);
@@ -109,8 +108,6 @@
     .top-bar-left i {
         color: var(--gold, #D4AF37);
         font-size: 13px;
-        width: 16px;
-        text-align: center;
     }
     .top-bar-right {
         display: flex;
@@ -135,11 +132,8 @@
         background: rgba(255, 255, 255, 0.08);
         transform: translateY(-2px);
     }
-    .top-bar-right a i {
-        font-size: 13px;
-    }
 
-    /* ===== SEARCH OVERLAY ===== */
+    /* ----- SEARCH OVERLAY ----- */
     .search-toggle {
         background: none;
         border: none;
@@ -148,7 +142,6 @@
         cursor: pointer;
         transition: var(--transition, all 0.3s ease);
         padding: 4px 8px;
-        font-family: 'Inter', sans-serif;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -160,6 +153,7 @@
         font-size: 18px;
         pointer-events: none;
     }
+
     .search-overlay {
         position: fixed;
         top: 0;
@@ -257,7 +251,7 @@
         font-size: 14px;
     }
 
-    /* ===== NAVBAR ===== */
+    /* ----- NAVBAR ----- */
     .navbar {
         position: sticky;
         top: 0;
@@ -276,6 +270,11 @@
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 24px;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
     }
     .logo img {
         height: 44px;
@@ -383,7 +382,7 @@
         transform: rotate(-45deg) translate(5px, -5px);
     }
 
-    /* ===== RESPONSIVE ===== */
+    /* ----- RESPONSIVE ----- */
     @media (max-width: 768px) {
         .top-bar .container {
             flex-direction: column;
@@ -470,17 +469,30 @@
 
     // ===== SET ACTIVE NAV LINK =====
     (function setActiveNav() {
-        var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        // Get the current page path (e.g., /about.html or /services/accounting.html)
+        var currentPath = window.location.pathname;
+        
+        // Get all navigation links (exclude the button)
         var links = document.querySelectorAll('.nav-links a:not(.btn-primary)');
+        
         links.forEach(function(link) {
             var href = link.getAttribute('href');
-            if (href === currentPage) {
+            
+            // If href is '/' (home), only match when currentPath is exactly '/'
+            if (href === '/') {
+                if (currentPath === '/' || currentPath === '') {
+                    link.classList.add('active');
+                }
+                return;
+            }
+            
+            // For all other links, check if href matches current path
+            if (href === currentPath) {
                 link.classList.add('active');
             }
-            if (currentPage === 'index.html' && href === 'index.html') {
-                link.classList.add('active');
-            }
-            if ((currentPage === '' || currentPage === '/') && href === 'index.html') {
+            
+            // Handle index.html case
+            if (href === '/index.html' && (currentPath === '/' || currentPath === '')) {
                 link.classList.add('active');
             }
         });
