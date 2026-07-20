@@ -29,25 +29,20 @@
         "image": "https://i.ibb.co/fVXdHSPZ/Logo-PNG.png",
         "description": "Best consulting firm in Nepal offering business advisory, accounting, taxation, outsourcing, and financial services.",
         "address": { "@type": "PostalAddress", "addressLocality": "Kathmandu", "addressCountry": "NP" },
-        "telephone": "+977-1-2345678",
-        "email": "info@nexaconsulting.com"
+        "telephone": "+977-9768553322",
+        "email": "info@nexa.com.np"
     }
     </script>
     <style>
-        /* ===== RESET & VARIABLES ===== */
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* ============================================================
+           ROOT VARIABLES
+           ============================================================ */
         :root {
             --gold: #D4AF37;
             --gold-light: #E8C94A;
             --gold-gradient: linear-gradient(135deg, #D4AF37, #F0D060);
             --bg-white: #FFFFFF;
-            --bg-light: #F5F7FA;
+            --bg-light: #F8FAFC;
             --text-dark: #1A1A2E;
             --text-gray: #6B7280;
             --text-light: #9CA3AF;
@@ -55,6 +50,17 @@
             --radius: 14px;
             --radius-sm: 10px;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ============================================================
+           RESET & BASE
+           ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         html {
             scroll-behavior: smooth;
@@ -89,10 +95,10 @@
             border-radius: 10px;
         }
 
-        /* ===== BUTTONS ===== */
-        .btn-primary,
-        .btn-gold,
-        .btn-show-all {
+        /* ============================================================
+           BUTTONS
+           ============================================================ */
+        .btn-primary {
             display: inline-block;
             background: var(--gold-gradient);
             color: var(--text-dark);
@@ -108,9 +114,7 @@
             position: relative;
             overflow: hidden;
         }
-        .btn-primary::before,
-        .btn-gold::before,
-        .btn-show-all::before {
+        .btn-primary::before {
             content: '';
             position: absolute;
             top: 0;
@@ -120,17 +124,14 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: 0.6s;
         }
-        .btn-primary:hover::before,
-        .btn-gold:hover::before,
-        .btn-show-all:hover::before {
+        .btn-primary:hover::before {
             left: 100%;
         }
-        .btn-primary:hover,
-        .btn-gold:hover,
-        .btn-show-all:hover {
+        .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 12px 36px rgba(212, 175, 55, 0.4);
         }
+
         .btn-secondary {
             display: inline-block;
             background: transparent;
@@ -150,6 +151,26 @@
             color: var(--white);
             transform: translateY(-2px);
         }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--gold-gradient);
+            color: var(--text-dark);
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            letter-spacing: 0.3px;
+            box-shadow: var(--shadow-gold);
+        }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 36px rgba(212, 175, 55, 0.4);
+        }
+
         .btn-outline-gold {
             display: inline-block;
             background: transparent;
@@ -168,12 +189,28 @@
             transform: translateY(-2px);
             box-shadow: var(--shadow-gold);
         }
+
         .btn-show-all {
+            display: inline-block;
+            background: var(--gold-gradient);
+            color: var(--text-dark);
             padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
             font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-gold);
+        }
+        .btn-show-all:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 36px rgba(212, 175, 55, 0.4);
         }
 
-        /* ===== SECTION HEADERS ===== */
+        /* ============================================================
+           SECTION HEADERS
+           ============================================================ */
         .section-header {
             text-align: center;
             margin-bottom: 40px;
@@ -212,308 +249,9 @@
             line-height: 1.7;
         }
 
-        /* ===== HEADER STYLES (Critical for sticky navbar) ===== */
-        .top-bar {
-            background: var(--text-dark);
-            color: rgba(255, 255, 255, 0.6);
-            padding: 6px 0;
-            font-size: 13px;
-            position: relative;
-            z-index: 1001;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        .top-bar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 4px;
-        }
-        .top-bar-left {
-            display: flex;
-            gap: 18px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .top-bar-left a {
-            color: rgba(255, 255, 255, 0.6);
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            text-decoration: none;
-        }
-        .top-bar-left a:hover {
-            color: var(--gold);
-        }
-        .top-bar-left i {
-            color: var(--gold);
-            font-size: 13px;
-        }
-        .top-bar-right {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-        .top-bar-right a {
-            color: rgba(255, 255, 255, 0.4);
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.04);
-            font-size: 13px;
-            text-decoration: none;
-        }
-        .top-bar-right a:hover {
-            color: var(--gold);
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-2px);
-        }
-
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.97);
-            backdrop-filter: blur(16px);
-            padding: 10px 0;
-            transition: var(--transition);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-        }
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo img {
-            height: 44px;
-            width: auto;
-            display: block;
-        }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        .nav-links a {
-            color: var(--text-gray);
-            font-size: 14px;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-            text-decoration: none;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: var(--transition);
-        }
-        .nav-links a:hover {
-            color: var(--text-dark);
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        .nav-links a.active {
-            color: var(--gold);
-        }
-        .nav-links a.active::after {
-            width: 100%;
-        }
-        .nav-links .btn-primary {
-            padding: 10px 28px;
-            font-size: 13px;
-        }
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 4px;
-        }
-        .hamburger span {
-            width: 26px;
-            height: 2px;
-            background: var(--text-dark);
-            transition: var(--transition);
-            border-radius: 2px;
-        }
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        .search-toggle {
-            background: none;
-            border: none;
-            color: var(--text-gray);
-            font-size: 18px;
-            cursor: pointer;
-            transition: var(--transition);
-            padding: 4px 8px;
-        }
-        .search-toggle:hover {
-            color: var(--gold);
-        }
-
-        .search-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.92);
-            backdrop-filter: blur(16px);
-            z-index: 2000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
-            animation: fadeInSearch 0.3s ease;
-        }
-        .search-overlay.active {
-            display: flex;
-        }
-        @keyframes fadeInSearch {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        .search-box {
-            width: 100%;
-            max-width: 600px;
-            position: relative;
-        }
-        .search-box input {
-            width: 100%;
-            padding: 20px 24px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius);
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--white);
-            font-size: 18px;
-            font-family: inherit;
-            transition: var(--transition);
-        }
-        .search-box input::placeholder {
-            color: rgba(255, 255, 255, 0.3);
-        }
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--gold);
-            background: rgba(255, 255, 255, 0.08);
-        }
-        .search-box .close-search {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 24px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .search-box .close-search:hover {
-            color: var(--white);
-        }
-        .search-results {
-            margin-top: 20px;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        .search-results a {
-            display: block;
-            padding: 14px 20px;
-            color: rgba(255, 255, 255, 0.7);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: var(--transition);
-            border-radius: var(--radius-sm);
-            text-decoration: none;
-        }
-        .search-results a:hover {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--gold);
-        }
-        .search-results a i {
-            margin-right: 12px;
-            color: var(--gold);
-            width: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-            .nav-links {
-                position: fixed;
-                top: 98px;
-                left: 0;
-                right: 0;
-                background: var(--bg-white);
-                flex-direction: column;
-                padding: 24px;
-                gap: 16px;
-                transform: translateY(-120%);
-                transition: var(--transition);
-                border-bottom: 1px solid #E5E7EB;
-                box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-                z-index: 999;
-            }
-            .nav-links.open {
-                transform: translateY(0);
-            }
-            .top-bar .container {
-                flex-direction: column;
-                align-items: center;
-                gap: 4px;
-                text-align: center;
-                padding: 4px 16px;
-            }
-            .top-bar-left {
-                justify-content: center;
-                gap: 12px;
-                flex-wrap: wrap;
-            }
-            .top-bar-left a {
-                font-size: 12px;
-            }
-            .top-bar-right {
-                gap: 6px;
-            }
-            .top-bar-right a {
-                width: 24px;
-                height: 24px;
-                font-size: 11px;
-            }
-        }
-
-        /* ===== HERO ===== */
+        /* ============================================================
+           HERO
+           ============================================================ */
         .hero {
             padding: 60px 0 80px;
             background: var(--bg-white);
@@ -876,7 +614,9 @@
             transform: scale(1.05);
         }
 
-        /* ===== ABOUT ===== */
+        /* ============================================================
+           ABOUT
+           ============================================================ */
         .about {
             padding: 80px 0;
             background: var(--bg-light);
@@ -940,7 +680,9 @@
             opacity: 0.04;
         }
 
-        /* ===== SERVICES ===== */
+        /* ============================================================
+           SERVICES
+           ============================================================ */
         .services {
             padding: 80px 0;
             background: var(--bg-white);
@@ -1014,7 +756,9 @@
             margin-top: 36px;
         }
 
-        /* ===== INDUSTRIES ===== */
+        /* ============================================================
+           INDUSTRIES
+           ============================================================ */
         .industries {
             padding: 80px 0;
             background: var(--bg-light);
@@ -1075,7 +819,9 @@
             margin-top: 36px;
         }
 
-        /* ===== OUTSOURCING ===== */
+        /* ============================================================
+           OUTSOURCING
+           ============================================================ */
         .outsourcing {
             padding: 80px 0;
             background: var(--bg-white);
@@ -1133,7 +879,9 @@
             margin-top: 36px;
         }
 
-        /* ===== WHY NEXA ===== */
+        /* ============================================================
+           WHY NEXA
+           ============================================================ */
         .why-nexa {
             padding: 80px 0;
             background: var(--bg-light);
@@ -1187,7 +935,9 @@
             line-height: 1.6;
         }
 
-        /* ===== PROCESS ===== */
+        /* ============================================================
+           PROCESS
+           ============================================================ */
         .process {
             padding: 80px 0;
             background: var(--bg-white);
@@ -1240,7 +990,9 @@
             line-height: 1.6;
         }
 
-        /* ===== STATISTICS ===== */
+        /* ============================================================
+           STATISTICS
+           ============================================================ */
         .statistics {
             padding: 70px 0;
             background: var(--text-dark);
@@ -1281,7 +1033,9 @@
             letter-spacing: 1px;
         }
 
-        /* ===== TRUSTED BY ===== */
+        /* ============================================================
+           TRUSTED BY - MARQUEE
+           ============================================================ */
         .trusted-section {
             padding: 60px 0;
             background: var(--bg-white);
@@ -1338,7 +1092,7 @@
         }
         .trusted-item:hover {
             transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
             border-color: var(--gold);
         }
         .trusted-item i {
@@ -1370,7 +1124,9 @@
             }
         }
 
-        /* ===== CTA BANNER ===== */
+        /* ============================================================
+           CTA BANNER
+           ============================================================ */
         .cta-banner {
             padding: 70px 0;
             background: var(--bg-light);
@@ -1397,7 +1153,9 @@
             margin-bottom: 28px;
         }
 
-        /* ===== CONTACT ===== */
+        /* ============================================================
+           CONTACT
+           ============================================================ */
         .contact {
             padding: 80px 0;
             background: var(--bg-white);
@@ -1489,170 +1247,40 @@
             font-size: 13px;
         }
 
-        /* ===== NEWSLETTER ===== */
-        .newsletter {
-            padding: 50px 0;
-            background: var(--bg-light);
-            border-top: 1px solid #E5E7EB;
-            border-bottom: 1px solid #E5E7EB;
+        /* ============================================================
+           SCROLL ANIMATIONS
+           ============================================================ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
-        .newsletter .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .newsletter-content h3 {
-            color: var(--text-dark);
-            font-size: 22px;
-            font-weight: 700;
+        .fade-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
-        .newsletter-content p {
-            color: var(--text-gray);
-            font-size: 14px;
+        .fade-left.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+        .fade-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
-        .newsletter-form input {
-            padding: 14px 20px;
-            border: 2px solid #E5E7EB;
-            border-radius: 50px;
-            background: var(--bg-white);
-            color: var(--text-dark);
-            font-size: 14px;
-            font-family: inherit;
-            min-width: 260px;
-            transition: var(--transition);
-        }
-        .newsletter-form input::placeholder {
-            color: var(--text-light);
-        }
-        .newsletter-form input:focus {
-            outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.06);
-        }
-        .newsletter-form .btn-primary {
-            padding: 14px 32px;
-            font-size: 14px;
+        .fade-right.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
 
-        /* ===== FOOTER STYLES ===== */
-        .footer {
-            background: var(--text-dark);
-            color: rgba(255, 255, 255, 0.6);
-            padding: 50px 0 0;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        .footer-brand .logo-text {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 10px;
-            display: block;
-            font-family: 'Playfair Display', serif;
-            text-decoration: none;
-        }
-        .footer-brand .logo-text span {
-            color: var(--gold);
-        }
-        .footer-brand img {
-            height: 40px;
-            width: auto;
-            margin-bottom: 12px;
-        }
-        .footer-brand p {
-            font-size: 13px;
-            line-height: 1.7;
-            max-width: 280px;
-            color: rgba(255, 255, 255, 0.5);
-        }
-        .footer h4 {
-            color: var(--white);
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 14px;
-        }
-        .footer ul li {
-            margin-bottom: 8px;
-        }
-        .footer ul li a {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.5);
-            transition: var(--transition);
-            text-decoration: none;
-        }
-        .footer ul li a:hover {
-            color: var(--gold);
-        }
-        .footer-contact li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 13px;
-            margin-bottom: 8px;
-            color: rgba(255, 255, 255, 0.5);
-        }
-        .footer-contact li i {
-            color: var(--gold);
-            width: 16px;
-        }
-        .footer-social {
-            display: flex;
-            gap: 10px;
-            margin-top: 12px;
-        }
-        .footer-social a {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.06);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 14px;
-            text-decoration: none;
-        }
-        .footer-social a:hover {
-            background: var(--gold);
-            color: var(--text-dark);
-            transform: translateY(-3px);
-        }
-        .footer-bottom {
-            padding: 18px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.4);
-        }
-        .footer-bottom-links {
-            display: flex;
-            gap: 16px;
-        }
-        .footer-bottom-links a {
-            color: rgba(255, 255, 255, 0.4);
-            transition: var(--transition);
-            text-decoration: none;
-        }
-        .footer-bottom-links a:hover {
-            color: var(--gold);
-        }
-
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
         @media (max-width: 1024px) {
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1667,9 +1295,6 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             .process-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -1737,40 +1362,9 @@
                 font-size: 28px;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .footer-brand p {
-                margin: 0 auto;
-            }
-            .footer-social {
-                justify-content: center;
-            }
-            .footer-contact li {
-                justify-content: center;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-
             .contact-wrapper {
                 grid-template-columns: 1fr;
                 gap: 30px;
-            }
-
-            .newsletter .container {
-                flex-direction: column;
-                text-align: center;
-            }
-            .newsletter-form {
-                justify-content: center;
-                width: 100%;
-            }
-            .newsletter-form input {
-                min-width: 180px;
-                width: 100%;
             }
 
             .cta-banner h2 {
@@ -1789,11 +1383,6 @@
             }
             .trusted-marquee {
                 gap: 30px;
-            }
-
-            .search-box input {
-                font-size: 16px;
-                padding: 16px 20px;
             }
         }
 
@@ -1854,25 +1443,19 @@
             .trusted-marquee {
                 gap: 20px;
             }
-            .footer-bottom-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- ===== HEADER (fetched from components) ===== -->
+    <!-- ===== HEADER ===== -->
     <div id="header"></div>
     <script>
         fetch('components/header.html')
             .then(res => res.text())
             .then(data => {
                 document.getElementById('header').innerHTML = data;
-                // Re-initialize header functionality after loading
-                if (typeof initHeader === 'function') initHeader();
             })
             .catch(err => console.error('Header load failed:', err));
     </script>
@@ -1908,8 +1491,8 @@
                     <div class="stat-item"><h4>15+</h4><p>Industries</p></div>
                 </div>
                 <div class="hero-buttons">
-                    <a href="contact.html" class="btn-primary">Book Consultation</a>
-                    <a href="services.html" class="btn-secondary">Explore Services</a>
+                    <a href="/contact.html" class="btn-primary">Book Consultation</a>
+                    <a href="/services.html" class="btn-secondary">Explore Services</a>
                 </div>
             </div>
             <div class="hero-image-wrapper">
@@ -1935,7 +1518,7 @@
                     <li><i class="fas fa-check-circle"></i> Global Standards & Practices</li>
                     <li><i class="fas fa-check-circle"></i> Proven Track Record</li>
                 </ul>
-                <a href="about.html" class="btn-outline-gold">Learn More About Us</a>
+                <a href="/about.html" class="btn-outline-gold">Learn More About Us</a>
             </div>
             <div class="about-image fade-right">
                 <i class="fas fa-building"></i>
@@ -1963,7 +1546,7 @@
                 <div class="service-card fade-up"><div class="icon"><i class="fas fa-shield-alt"></i></div><h4>Compliance Services</h4><p>Regulatory compliance and risk management solutions.</p></div>
             </div>
             <div class="services-show-all">
-                <a href="services.html" class="btn-show-all"><i class="fas fa-arrow-right" style="margin-right:8px;"></i> Show All Services</a>
+                <a href="/services.html" class="btn-show-all"><i class="fas fa-arrow-right" style="margin-right:8px;"></i> Show All Services</a>
             </div>
         </div>
     </section>
@@ -1985,7 +1568,7 @@
                 <div class="industry-card fade-up"><div class="icon-wrap"><i class="fas fa-concierge-bell"></i></div><div class="info"><h4>Hospitality</h4><p>Revenue management, cost control, and operational advisory</p></div></div>
             </div>
             <div class="industries-show-all">
-                <a href="industries.html" class="btn-show-all"><i class="fas fa-arrow-right" style="margin-right:8px;"></i> Show All Industries</a>
+                <a href="/industries.html" class="btn-show-all"><i class="fas fa-arrow-right" style="margin-right:8px;"></i> Show All Industries</a>
             </div>
         </div>
     </section>
@@ -2007,7 +1590,7 @@
                 <div class="outsourcing-card fade-up"><div class="icon"><i class="fas fa-globe"></i></div><h4>Global Client Support</h4><p>Trusted by clients across the globe for reliable, scalable, and cost-effective outsourcing solutions.</p></div>
             </div>
             <div class="outsourcing-show-all">
-                <a href="outsourcing.html" class="btn-show-all"><i class="fas fa-arrow-right" style="margin-right:8px;"></i> Explore All Outsourcing Services</a>
+                <a href="/outsourcing.html" class="btn-show-all"><i class="fas fa-arrow-right" style="margin-right:8px;"></i> Explore All Outsourcing Services</a>
             </div>
         </div>
     </section>
@@ -2062,82 +1645,32 @@
         </div>
     </section>
 
-    <!-- ===== TRUSTED BY INDUSTRY EXPERTS ===== -->
+    <!-- ===== TRUSTED BY ===== -->
     <section class="trusted-section">
         <div class="container">
             <div class="section-header fade-up">
-                <span class="label">Trusted Partners</span>
+                <span class="label">Our Partners</span>
                 <h2>Trusted by Industry <span>Experts</span></h2>
                 <p>We partner with the world's leading technology and service providers.</p>
             </div>
             <div class="trusted-track">
                 <div class="trusted-marquee">
-                    <!-- First Set -->
-                    <div class="trusted-item">
-                        <i class="fab fa-microsoft"></i>
-                        <span>Microsoft</span>
-                    </div>
-                    <div class="trusted-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>Zoho Mail</span>
-                    </div>
-                    <div class="trusted-item">
-                        <i class="fas fa-cloud"></i>
-                        <span>AWS</span>
-                    </div>
-                    <div class="trusted-item">
-                        <i class="fab fa-google"></i>
-                        <span>Google</span>
-                    </div>
-                    <div class="trusted-item">
-                        <i class="fas fa-chart-bar"></i>
-                        <span>Tableau</span>
-                    </div>
-                    <div class="trusted-item">
-                        <i class="fab fa-salesforce"></i>
-                        <span>Salesforce</span>
-                    </div>
-                    <div class="trusted-item">
-                        <i class="fas fa-database"></i>
-                        <span>Oracle</span>
-                    </div>
-                    <div class="trusted-item">
-                        <i class="fab fa-slack"></i>
-                        <span>Slack</span>
-                    </div>
-                    <!-- Duplicate Set for seamless loop -->
-                    <div class="trusted-item">
-                        <i class="fab fa-microsoft"></i>
-                        <span>Microsoft</span>
-                    </div>
-                    <div class="trusted-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>Zoho Mail</span>
-                    </div>
-                    <div class="trusted-item">
-                        <i class="fas fa-cloud"></i>
-                        <span>AWS</span>
-                    </div>
-                    <div class="trusted-item">
-                        <i class="fab fa-google"></i>
-                        <span>Google</span>
-                    </div>
-                    <div class="trusted-item">
-                        <i class="fas fa-chart-bar"></i>
-                        <span>Tableau</span>
-                    </div>
-                    <div class="trusted-item">
-                        <i class="fab fa-salesforce"></i>
-                        <span>Salesforce</span>
-                    </div>
-                    <div class="trusted-item">
-                        <i class="fas fa-database"></i>
-                        <span>Oracle</span>
-                    </div>
-                    <div class="trusted-item">
-                        <i class="fab fa-slack"></i>
-                        <span>Slack</span>
-                    </div>
+                    <div class="trusted-item"><i class="fab fa-microsoft"></i><span>Microsoft</span></div>
+                    <div class="trusted-item"><i class="fas fa-envelope"></i><span>Zoho Mail</span></div>
+                    <div class="trusted-item"><i class="fas fa-cloud"></i><span>AWS</span></div>
+                    <div class="trusted-item"><i class="fab fa-google"></i><span>Google</span></div>
+                    <div class="trusted-item"><i class="fas fa-chart-bar"></i><span>Tableau</span></div>
+                    <div class="trusted-item"><i class="fab fa-salesforce"></i><span>Salesforce</span></div>
+                    <div class="trusted-item"><i class="fas fa-database"></i><span>Oracle</span></div>
+                    <div class="trusted-item"><i class="fab fa-slack"></i><span>Slack</span></div>
+                    <div class="trusted-item"><i class="fab fa-microsoft"></i><span>Microsoft</span></div>
+                    <div class="trusted-item"><i class="fas fa-envelope"></i><span>Zoho Mail</span></div>
+                    <div class="trusted-item"><i class="fas fa-cloud"></i><span>AWS</span></div>
+                    <div class="trusted-item"><i class="fab fa-google"></i><span>Google</span></div>
+                    <div class="trusted-item"><i class="fas fa-chart-bar"></i><span>Tableau</span></div>
+                    <div class="trusted-item"><i class="fab fa-salesforce"></i><span>Salesforce</span></div>
+                    <div class="trusted-item"><i class="fas fa-database"></i><span>Oracle</span></div>
+                    <div class="trusted-item"><i class="fab fa-slack"></i><span>Slack</span></div>
                 </div>
             </div>
         </div>
@@ -2148,7 +1681,7 @@
         <div class="container">
             <h2>Ready to Elevate Your <span>Business</span>?</h2>
             <p>Let's discuss how NEXA can help you achieve your business goals.</p>
-            <a href="contact.html" class="btn-gold">Get in Touch</a>
+            <a href="/contact.html" class="btn-gold">Get in Touch</a>
         </div>
     </section>
 
@@ -2161,17 +1694,18 @@
                 <p>We'd love to hear from you. Reach out to us for any inquiries.</p>
             </div>
             <div class="contact-wrapper">
-                <form class="contact-form" id="contactForm" onsubmit="return handleSubmit(event)">
-                    <div style="margin-bottom:14px;"><input type="text" placeholder="Your Full Name" required /></div>
-                    <div style="margin-bottom:14px;"><input type="email" placeholder="Your Email Address" required /></div>
-                    <div style="margin-bottom:14px;"><input type="text" placeholder="Subject" /></div>
-                    <div style="margin-bottom:18px;"><textarea rows="4" placeholder="Tell us about your needs..." required></textarea></div>
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/mykrjlya" method="POST">
+                    <div style="margin-bottom:14px;"><input type="text" name="name" placeholder="Your Full Name" required /></div>
+                    <div style="margin-bottom:14px;"><input type="email" name="email" placeholder="Your Email Address" required /></div>
+                    <div style="margin-bottom:14px;"><input type="text" name="subject" placeholder="Subject" /></div>
+                    <div style="margin-bottom:18px;"><textarea name="message" rows="4" placeholder="Tell us about your needs..." required></textarea></div>
+                    <input type="hidden" name="_subject" value="New Contact Form Submission" />
                     <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
                 </form>
                 <div class="contact-info">
                     <div class="info-item"><h4><i class="fas fa-map-marker-alt"></i> Address</h4><p>Kathmandu, Nepal</p></div>
-                    <div class="info-item"><h4><i class="fas fa-phone"></i> Phone</h4><p>+977 1-2345678</p></div>
-                    <div class="info-item"><h4><i class="fas fa-envelope"></i> Email</h4><p>info@nexaconsulting.com</p></div>
+                    <div class="info-item"><h4><i class="fas fa-phone"></i> Phone</h4><p><a href="tel:+9779768553322">+977 9768553322</a></p></div>
+                    <div class="info-item"><h4><i class="fas fa-envelope"></i> Email</h4><p><a href="mailto:info@nexa.com.np">info@nexa.com.np</a></p></div>
                     <div>
                         <h4 style="color:var(--gold);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Follow Us</h4>
                         <div class="contact-social">
@@ -2187,21 +1721,7 @@
         </div>
     </section>
 
-    <!-- ===== NEWSLETTER ===== -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-content">
-                <h3><i class="fas fa-envelope" style="color:var(--gold);margin-right:10px;"></i> Subscribe to Our Newsletter</h3>
-                <p>Stay updated with the latest insights, tips, and industry trends.</p>
-            </div>
-            <form class="newsletter-form" onsubmit="alert('Thank you for subscribing!'); return false;">
-                <input type="email" placeholder="Enter your email address" required />
-                <button type="submit" class="btn-primary">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER (fetched from components) ===== -->
+    <!-- ===== FOOTER ===== -->
     <div id="footer"></div>
     <script>
         fetch('components/footer.html')
@@ -2212,35 +1732,64 @@
             .catch(err => console.error('Footer load failed:', err));
     </script>
 
-    <!-- ===== JAVASCRIPT ===== -->
+    <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
     <script>
-        // Search data
+        // ============================================================
+        // SEARCH DATA
+        // ============================================================
         const searchData = [
-            { title: 'Accounting & Bookkeeping', page: 'services.html', icon: 'fa-calculator' },
-            { title: 'Taxation', page: 'services.html', icon: 'fa-gavel' },
-            { title: 'Company Registration', page: 'services.html', icon: 'fa-building' },
-            { title: 'Business Advisory', page: 'services.html', icon: 'fa-handshake' },
-            { title: 'Virtual CFO', page: 'services.html', icon: 'fa-chart-pie' },
-            { title: 'Financial Reporting', page: 'services.html', icon: 'fa-file-invoice' },
-            { title: 'Payroll Services', page: 'services.html', icon: 'fa-user-cog' },
-            { title: 'Compliance Services', page: 'services.html', icon: 'fa-shield-alt' },
-            { title: 'Banking', page: 'industries.html', icon: 'fa-university' },
-            { title: 'Manufacturing', page: 'industries.html', icon: 'fa-industry' },
-            { title: 'Trading', page: 'industries.html', icon: 'fa-exchange-alt' },
-            { title: 'Education', page: 'industries.html', icon: 'fa-graduation-cap' },
-            { title: 'NGOs/INGOs', page: 'industries.html', icon: 'fa-hand-holding-heart' },
-            { title: 'Hospitality', page: 'industries.html', icon: 'fa-concierge-bell' },
-            { title: 'Accounting Outsourcing', page: 'outsourcing.html', icon: 'fa-calculator' },
-            { title: 'Bookkeeping Services', page: 'outsourcing.html', icon: 'fa-file-invoice' },
-            { title: 'Tax Support', page: 'outsourcing.html', icon: 'fa-gavel' },
-            { title: 'Payroll Outsourcing', page: 'outsourcing.html', icon: 'fa-user-cog' },
-            { title: 'Global Client Support', page: 'outsourcing.html', icon: 'fa-globe' },
-            { title: 'About NEXA', page: 'about.html', icon: 'fa-info-circle' },
-            { title: 'Contact Us', page: 'contact.html', icon: 'fa-envelope' },
-            { title: 'Book Consultation', page: 'contact.html', icon: 'fa-calendar-check' },
+            { title: 'Home', page: '/', icon: 'fa-home' },
+            { title: 'About NEXA', page: '/about.html', icon: 'fa-info-circle' },
+            { title: 'Our Services', page: '/services.html', icon: 'fa-cogs' },
+            { title: 'Industries We Serve', page: '/industries.html', icon: 'fa-industry' },
+            { title: 'Outsourcing', page: '/outsourcing.html', icon: 'fa-handshake' },
+            { title: 'Why NEXA', page: '/why-nexa.html', icon: 'fa-star' },
+            { title: 'Resources', page: '/resources.html', icon: 'fa-book' },
+            { title: 'Contact Us', page: '/contact.html', icon: 'fa-envelope' },
+            { title: 'Accounting & Bookkeeping', page: '/services/accounting.html', icon: 'fa-calculator' },
+            { title: 'Taxation & Compliance', page: '/services/taxation.html', icon: 'fa-gavel' },
+            { title: 'Company Registration', page: '/services/company-registration.html', icon: 'fa-building' },
+            { title: 'Business Advisory', page: '/services/business-advisory.html', icon: 'fa-handshake' },
+            { title: 'Virtual CFO', page: '/services/virtual-cfo.html', icon: 'fa-chart-pie' },
+            { title: 'Financial Reporting', page: '/services/financial-reporting.html', icon: 'fa-file-invoice' },
+            { title: 'Payroll & HR Services', page: '/services/payroll.html', icon: 'fa-user-cog' },
+            { title: 'Risk & Compliance', page: '/services/risk-compliance.html', icon: 'fa-shield-alt' },
+            { title: 'Business Valuation', page: '/services/business-valuation.html', icon: 'fa-chart-line' },
+            { title: 'Internal Audit', page: '/services/internal-audit.html', icon: 'fa-balance-scale' },
+            { title: 'Wealth Management', page: '/services/wealth-management.html', icon: 'fa-coins' },
+            { title: 'Legal Advisory', page: '/services/legal-advisory.html', icon: 'fa-legal' },
+            { title: 'Mergers & Acquisitions', page: '/services/mergers-acquisitions.html', icon: 'fa-people-arrows' },
+            { title: 'International Business Advisory', page: '/services/international-business-advisory.html', icon: 'fa-globe-asia' },
+            { title: 'Digital Transformation', page: '/services/digital-transformation.html', icon: 'fa-digital-tiling' },
+            { title: 'Banking', page: '/industries/banking.html', icon: 'fa-university' },
+            { title: 'Manufacturing', page: '/industries/manufacturing.html', icon: 'fa-industry' },
+            { title: 'Trading', page: '/industries/trading.html', icon: 'fa-exchange-alt' },
+            { title: 'Education', page: '/industries/education.html', icon: 'fa-graduation-cap' },
+            { title: 'NGOs & INGOs', page: '/industries/ngos-ingos.html', icon: 'fa-hand-holding-heart' },
+            { title: 'Hospitality', page: '/industries/hospitality.html', icon: 'fa-concierge-bell' },
+            { title: 'Healthcare', page: '/industries/health-care.html', icon: 'fa-heartbeat' },
+            { title: 'Information Technology', page: '/industries/it.html', icon: 'fa-laptop-code' },
+            { title: 'Construction', page: '/industries/construction.html', icon: 'fa-hard-hat' },
+            { title: 'Microfinance', page: '/industries/micro-finance.html', icon: 'fa-hand-holding-usd' },
+            { title: 'Agriculture & Agri-Business', page: '/industries/agriculture.html', icon: 'fa-seedling' },
+            { title: 'Energy & Renewables', page: '/industries/energy.html', icon: 'fa-bolt' },
+            { title: 'Blog & Insights', page: '/resources/blog.html', icon: 'fa-blog' },
+            { title: 'Careers', page: '/resources/careers.html', icon: 'fa-briefcase' },
+            { title: 'Downloads', page: '/resources/downloads.html', icon: 'fa-download' },
+            { title: 'FAQs', page: '/resources/faqs.html', icon: 'fa-question-circle' },
+            { title: 'Privacy Policy', page: '/pages/privacy-policy.html', icon: 'fa-shield-alt' },
+            { title: 'Terms & Conditions', page: '/pages/terms-conditions.html', icon: 'fa-file-contract' },
+            { title: 'Disclaimer', page: '/pages/disclaimer.html', icon: 'fa-exclamation-triangle' },
+            { title: 'Cookie Policy', page: '/pages/cookie-policy.html', icon: 'fa-cookie' },
+            { title: 'Sitemap', page: '/sitemap.html', icon: 'fa-sitemap' },
+            { title: 'Book Consultation', page: '/contact.html', icon: 'fa-calendar-check' },
         ];
 
-        // Search functions
+        // ============================================================
+        // SEARCH FUNCTIONS
+        // ============================================================
         function openSearch() {
             const overlay = document.getElementById('searchOverlay');
             if (overlay) {
@@ -2284,14 +1833,18 @@
             if (overlay && e.target === overlay) closeSearch();
         });
 
-        // Scroll animations
+        // ============================================================
+        // SCROLL ANIMATIONS
+        // ============================================================
         const fadeElements = document.querySelectorAll('.fade-up, .fade-left, .fade-right');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1 });
         fadeElements.forEach(el => observer.observe(el));
 
-        // Counters
+        // ============================================================
+        // COUNTER ANIMATION
+        // ============================================================
         const counters = document.querySelectorAll('.counter');
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -2310,21 +1863,36 @@
         }, { threshold: 0.5 });
         counters.forEach(c => counterObserver.observe(c));
 
-        // Contact form
-        function handleSubmit(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We\'ll be in touch soon.');
-            document.getElementById('contactForm').reset();
-            return false;
-        }
+        // ============================================================
+        // CONTACT FORM - Formspree
+        // ============================================================
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
 
-        // Navbar shadow
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (navbar) {
-                navbar.style.boxShadow = window.pageYOffset > 50 ? '0 2px 20px rgba(0,0,0,0.06)' : 'none';
-            }
-        });
+                const formData = new FormData(contactForm);
+
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(function(response) {
+                    if (response.ok) {
+                        alert('Thank you for your message! We\'ll be in touch soon.');
+                        contactForm.reset();
+                    } else {
+                        alert('Something went wrong. Please try again.');
+                    }
+                })
+                .catch(function() {
+                    alert('Something went wrong. Please try again.');
+                });
+            });
+        }
     </script>
 
 </body>
